@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffc9df">
+
+  <title>the art diary ♡</title>
+
+  <style>
+    :root {
+      --bg: #fff2f7;
+      --paper: #fffafd;
+      --text: #35445c;
+      --pink: #ffb8d2;
+      --pink-light: #ffe0ec;
+      --blue: #a9d9ff;
+      --blue-light: #e0f2ff;
+      --border: #ffd0e2;
+      --shadow: #f8d5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 10%, #ffe0ec 0, transparent 25%),
+        radial-gradient(circle at 90% 35%, #e0f2ff 0, transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 58px 18px 45px;
+      background: linear-gradient(
+        135deg,
+        #ffc4dc,
+        #ffe4ef 48%,
+        #bce3ff
+      );
+      border-bottom: 4px dashed white;
+      overflow: hidden;
+    }
+
+    .header-decoration {
+      font-size: 1.3rem;
+      letter-spacing: 12px;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      line-height: 1.2;
+      margin: 0;
+      letter-spacing: -2px;
+      color: #35445c;
+      text-shadow: 3px 3px 0 white;
+    }
+
+    header p {
+      margin: 12px 0 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .header-note {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 5px 16px;
+      background: #ffffffb8;
+      border: 1px solid white;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 15px;
+      background: #fffafd;
+      border-bottom: 2px solid var(--border);
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      padding: 7px 15px;
+      border-radius: 25px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    nav a:nth-child(odd) {
+      background: var(--pink-light);
+    }
+
+    nav a:nth-child(even) {
+      background: var(--blue-light);
+    }
+
+    nav a:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    main {
+      width: min(850px, 100%);
+      margin: auto;
+      padding: 35px 18px;
+    }
+
+    .section-heading {
+      margin-bottom: 5px;
+      font-size: 1.7rem;
+    }
+
+    .section-subtitle {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #65758c;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 2px solid white;
+      outline: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 4px 5px 0 var(--shadow);
+      overflow-wrap: anywhere;
+    }
+
+    .welcome {
+      border-top: 6px solid var(--pink);
+      background: linear-gradient(145deg, #fffafd, #fff2f7);
+      position: relative;
+    }
+
+    .welcome h2 {
+      margin-top: 0;
+    }
+
+    .little-sticker {
+      display: inline-block;
+      background: var(--blue-light);
+      padding: 5px 13px;
+      border-radius: 12px;
+      transform: rotate(-2deg);
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .welcome-bottom {
+      margin-top: 18px;
+      padding: 12px;
+      background: var(--blue-light);
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    h2 {
+      line-height: 1.4;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    #diary,
+    #gallery,
+    #about {
+      scroll-margin-top: 20px;
+    }
+
+    .entry-date {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #526b86;
+      background: var(--blue-light);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    .entry-card {
+      border-left: 5px solid var(--pink);
+    }
+
+    .art-placeholder {
+      padding: 42px 15px;
+      text-align: center;
+      border: 2px dashed #f4aeca;
+      border-radius: 17px;
+      background: linear-gradient(
+        135deg,
+        #ffe2ed,
+        #fff4f8 48%,
+        #dff2ff
+      );
+      margin: 18px 0;
+    }
+
+    .art-placeholder .big-star {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    .art-placeholder p {
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--blue-light);
+      color: #405674;
+      border: 1px solid #c6e7ff;
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin: 3px;
+      font-size: 0.8rem;
+    }
+
+    .tag.pink {
+      background: var(--pink-light);
+      border-color: #ffc6dd;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+    }
+
+    .art-tile {
+      min-height: 125px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 18px 10px;
+      border: 2px solid white;
+      border-radius: 18px;
+      box-shadow: 2px 3px 0 var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .art-tile:hover {
+      transform: translateY(-4px) rotate(-1deg);
+    }
+
+    .art-tile:nth-child(odd) {
+      background: var(--pink-light);
+    }
+
+    .art-tile:nth-child(even) {
+      background: var(--blue-light);
+      box-shadow: 2px 3px 0 #cce8ff;
+    }
+
+    .tile-icon {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .tile-title {
+      font-weight: bold;
+    }
+
+    .tile-description {
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .about-note {
+      background: linear-gradient(120deg, #ffe3ee, #e0f2ff);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      border: 2px dashed white;
+    }
+
+    .about-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 15px;
+      margin-top: 10px;
+      background: linear-gradient(100deg, #ffd6e7, #d9efff);
+      border-top: 3px dashed white;
+      color: #435775;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .footer-small {
+      font-size: 0.8rem;
+    }
+
+    ::selection {
+      background: #ffc4dc;
+      color: #35445c;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 42px 15px 35px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      nav {
+        gap: 7px;
+      }
+
+      nav a {
+        padding: 6px 11px;
+        font-size: 0.9rem;
+      }
+
+      .art-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-decoration">♡ ☆ ୨୧ ☆ ♡</div>
+
+    <h1>the art diary ♡</h1>
+
+    <p class="subtitle">
+      a little archive of things i make & moments i keep
+    </p>
+
+    <p>✧ art · thoughts · chaos · memories ✧</p>
+
+    <div class="header-note">
+      welcome to my little corner of the internet!
+    </div>
+  </header>
+
+  <nav>
+    <a href="#home">♡ home</a>
+    <a href="#diary">☆ diary</a>
+    <a href="#gallery">✧ art gallery</a>
+    <a href="#about">୨୧ about</a>
+  </nav>
+
+  <main id="home">
+
+    <section class="card welcome" id="about">
+      <div class="little-sticker">♡ a little introduction ♡</div>
+
+      <h2>heyyy, welcome to my corner!</h2>
+
+      <p>
+        Hii!! Welcome to my personal art diary, a tiny place
+        on the internet where I can collect my drawings,
+        character designs, animation progress, random ideas,
+        and little pieces of life.
+      </p>
+
+      <p>
+        Think of this as my own digital scrapbook.
+        It's a work in progress, just like me!
+      </p>
+
+      <div class="welcome-bottom">
+        ♡ make yourself comfy · stay a little while · enjoy! ♡
+      </div>
+    </section>
+
+    <section id="diary">
+      <h2 class="section-heading">୨୧ the diary</h2>
+
+      <p class="section-subtitle">
+        little moments, creative chaos, and memories to keep ♡
+      </p>
+
+      <article class="card entry-card">
+        <div class="entry-date">October 12, 2026</div>
+
+        <h3>the beginning ☆</h3>
+
+        <div class="art-placeholder">
+          <span class="big-star">♡ ✧ ☆</span>
+          <p><strong>your artwork will live here!</strong></p>
+          <p>a little space waiting for your next creation</p>
+        </div>
+
+        <p>
+          Today I'm starting my own art diary! I want to
+          collect my drawings, ideas, and creative progress
+          in one little corner of the internet.
+        </p>
+
+        <p>
+          Here's to making things, trying new ideas, and
+          filling this space with memories. This is only the
+          beginning!
+        </p>
+
+        <span class="tag pink">first entry</span>
+        <span class="tag">art diary</span>
+        <span class="tag pink">new beginnings</span>
+      </article>
+
+      <!--
+        TO ADD A NEW DIARY ENTRY:
+        Copy the entire article above, paste it below,
+        then change the date, title, artwork, and writing.
+      -->
+    </section>
+
+    <section id="gallery">
+      <h2 class="section-heading">✧ art gallery</h2>
+
+      <p class="section-subtitle">
+        a home for all the things i create ♡
+      </p>
+
+      <div class="card art-grid">
+
+        <div class="art-tile">
+          <span class="tile-icon">☆</span>
+          <span class="tile-title">sketches</span>
+          <span class="tile-description">little ideas & doodles</span>
+        </div>
+
+        <div class="art-tile">
+          <span class="tile-icon">♡</span>
+          <span class="tile-title">character art</span>
+          <span class="tile-description">OCs & favorite characters</span>
+        </div>
+
+        <div class="art-tile">
+          <span class="tile-icon">✧</span>
+          <span class="tile-title">animation</span>
+          <span class="tile-description">frames & progress</span>
+        </div>
+
+        <div class="art-tile">
+          <span class="tile-icon">୨୧</span>
+          <span class="tile-title">miscellaneous</span>
+          <span class="tile-description">everything else!</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="about-note">
+        <h2>♡ a tiny reminder ♡</h2>
+
+        <p>
+          You don't have to be perfect to make art.
+          Every sketch, every experiment, and every little
+          idea is part of the journey.
+        </p>
+
+        <p>keep creating at your own pace ☆</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>made with ♡ and a little chaos</strong></p>
+    <p>pink skies · blue days · creative ways ✧</p>
+    <p class="footer-small">thanks for visiting my little corner ☆</p>
+  </footer>
+</body>
+</html>
