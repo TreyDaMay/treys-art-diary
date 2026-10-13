@@ -1,24 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffc9df">
+  <meta name="theme-color" content="#ffd4e5">
 
-  <title>the art diary ♡</title>
+  <title>my art learning diary ♡</title>
 
   <style>
     :root {
-      --bg: #fff2f7;
-      --paper: #fffafd;
-      --text: #35445c;
-      --pink: #ffb8d2;
-      --pink-light: #ffe0ec;
-      --blue: #a9d9ff;
-      --blue-light: #e0f2ff;
-      --border: #ffd0e2;
-      --shadow: #f8d5e5;
+      --pink: #ffc5dc;
+      --pink-light: #fff0f6;
+      --pink-dark: #b65f88;
+      --blue: #b9e1ff;
+      --blue-light: #edf8ff;
+      --ink: #35465e;
+      --white: #fffafd;
+      --border: #f5cddd;
     }
 
     * {
@@ -27,89 +25,77 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 20px;
     }
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 10% 10%, #ffe0ec 0, transparent 25%),
-        radial-gradient(circle at 90% 35%, #e0f2ff 0, transparent 28%),
-        var(--bg);
-      color: var(--text);
+      background: #fff5f9;
+      color: var(--ink);
       font-family: "Trebuchet MS", Arial, sans-serif;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    a {
-      color: inherit;
+    button {
+      font: inherit;
     }
 
     header {
-      position: relative;
+      padding: 45px 18px 38px;
       text-align: center;
-      padding: 58px 18px 45px;
       background: linear-gradient(
-        135deg,
-        #ffc4dc,
-        #ffe4ef 48%,
-        #bce3ff
+        135deg, #ffc5dc, #ffe8f1, #c5e7ff
       );
       border-bottom: 4px dashed white;
-      overflow: hidden;
     }
 
-    .header-decoration {
+    .decoration {
       font-size: 1.3rem;
-      letter-spacing: 12px;
-      margin-bottom: 12px;
+      letter-spacing: 8px;
     }
 
     header h1 {
-      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      margin: 8px 0;
+      font-size: clamp(2.2rem, 7vw, 4rem);
       line-height: 1.2;
-      margin: 0;
       letter-spacing: -2px;
-      color: #35445c;
-      text-shadow: 3px 3px 0 white;
+      text-shadow: 2px 3px white;
     }
 
     header p {
-      margin: 12px 0 0;
+      margin: 8px auto;
+      max-width: 500px;
     }
 
     .subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
-    .header-note {
+    .header-pill {
       display: inline-block;
-      margin-top: 20px;
-      padding: 5px 16px;
-      background: #ffffffb8;
-      border: 1px solid white;
+      margin-top: 12px;
+      padding: 5px 14px;
       border-radius: 30px;
+      background: #ffffffc9;
       font-size: 0.85rem;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 10px;
       flex-wrap: wrap;
-      padding: 15px;
-      background: #fffafd;
-      border-bottom: 2px solid var(--border);
-      position: relative;
+      gap: 9px;
+      padding: 14px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
     }
 
     nav a {
+      padding: 7px 13px;
+      border-radius: 25px;
+      color: var(--ink);
       text-decoration: none;
       font-weight: bold;
-      padding: 7px 15px;
-      border-radius: 25px;
-      transition: background 0.2s, transform 0.2s;
+      font-size: 0.9rem;
     }
 
     nav a:nth-child(odd) {
@@ -121,234 +107,317 @@
     }
 
     nav a:hover {
-      background: white;
-      transform: translateY(-2px);
+      outline: 2px solid white;
     }
 
     main {
-      width: min(850px, 100%);
+      width: min(1000px, 100%);
       margin: auto;
-      padding: 35px 18px;
+      padding: 28px 18px 45px;
+    }
+
+    .intro {
+      padding: 24px;
+      margin-bottom: 32px;
+      background: var(--white);
+      border: 2px solid white;
+      border-top: 5px solid var(--pink);
+      border-radius: 22px;
+      box-shadow: 3px 5px 0 #f8dbe7;
+    }
+
+    .intro h2 {
+      margin-top: 0;
+    }
+
+    .intro-note {
+      padding: 12px;
+      text-align: center;
+      background: var(--blue-light);
+      border-radius: 14px;
     }
 
     .section-heading {
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       font-size: 1.7rem;
     }
 
-    .section-subtitle {
+    .section-description {
       margin-top: 0;
-      margin-bottom: 20px;
-      color: #65758c;
+      color: #63758c;
     }
 
-    .card {
-      background: var(--paper);
-      border: 2px solid white;
-      outline: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 24px;
-      margin-bottom: 28px;
-      box-shadow: 4px 5px 0 var(--shadow);
-      overflow-wrap: anywhere;
-    }
-
-    .welcome {
-      border-top: 6px solid var(--pink);
-      background: linear-gradient(145deg, #fffafd, #fff2f7);
-      position: relative;
-    }
-
-    .welcome h2 {
-      margin-top: 0;
-    }
-
-    .little-sticker {
-      display: inline-block;
-      background: var(--blue-light);
-      padding: 5px 13px;
-      border-radius: 12px;
-      transform: rotate(-2deg);
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-    }
-
-    .welcome-bottom {
-      margin-top: 18px;
-      padding: 12px;
-      background: var(--blue-light);
-      border-radius: 14px;
-      text-align: center;
-    }
-
-    h2 {
-      line-height: 1.4;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-    }
-
-    #diary,
-    #gallery,
-    #about {
-      scroll-margin-top: 20px;
-    }
-
-    .entry-date {
-      display: inline-block;
-      font-size: 0.85rem;
-      color: #526b86;
-      background: var(--blue-light);
-      border-radius: 20px;
-      padding: 4px 12px;
-    }
-
-    .entry-card {
-      border-left: 5px solid var(--pink);
-    }
-
-    .art-placeholder {
-      padding: 42px 15px;
-      text-align: center;
-      border: 2px dashed #f4aeca;
-      border-radius: 17px;
-      background: linear-gradient(
-        135deg,
-        #ffe2ed,
-        #fff4f8 48%,
-        #dff2ff
-      );
-      margin: 18px 0;
-    }
-
-    .art-placeholder .big-star {
-      display: block;
-      font-size: 2.5rem;
-      margin-bottom: 5px;
-    }
-
-    .art-placeholder p {
-      margin: 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--blue-light);
-      color: #405674;
-      border: 1px solid #c6e7ff;
-      border-radius: 20px;
-      padding: 4px 12px;
-      margin: 3px;
-      font-size: 0.8rem;
-    }
-
-    .tag.pink {
-      background: var(--pink-light);
-      border-color: #ffc6dd;
-    }
-
-    .art-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 14px;
-    }
-
-    .art-tile {
-      min-height: 125px;
+    .progress-strip {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 18px 10px;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      padding: 14px 17px;
+      background: linear-gradient(100deg, #ffe2ee, #e3f3ff);
       border: 2px solid white;
-      border-radius: 18px;
-      box-shadow: 2px 3px 0 var(--shadow);
-      transition: transform 0.2s;
+      border-radius: 16px;
     }
 
-    .art-tile:hover {
-      transform: translateY(-4px) rotate(-1deg);
-    }
-
-    .art-tile:nth-child(odd) {
-      background: var(--pink-light);
-    }
-
-    .art-tile:nth-child(even) {
-      background: var(--blue-light);
-      box-shadow: 2px 3px 0 #cce8ff;
-    }
-
-    .tile-icon {
-      font-size: 2rem;
-      margin-bottom: 5px;
-    }
-
-    .tile-title {
+    .progress-count {
+      font-size: 1.2rem;
       font-weight: bold;
     }
 
-    .tile-description {
+    .progress-caption {
+      font-size: 0.85rem;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(min(100%, 230px), 1fr)
+      );
+      gap: 18px;
+    }
+
+    .lesson-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 17px;
+      text-align: left;
+      color: var(--ink);
+      background: var(--white);
+      border: 2px solid white;
+      border-radius: 20px;
+      box-shadow: 3px 4px 0 #f5d8e5;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+
+    .lesson-card:nth-child(even) {
+      box-shadow: 3px 4px 0 #d7eafa;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .lesson-card:focus-visible {
+      outline: 3px solid #7ab9e8;
+      outline-offset: 4px;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .day-label {
+      padding: 4px 10px;
+      background: var(--pink-light);
+      border-radius: 20px;
       font-size: 0.8rem;
-      margin-top: 4px;
+      font-weight: bold;
     }
 
-    .about-note {
-      background: linear-gradient(120deg, #ffe3ee, #e0f2ff);
-      border-radius: 18px;
-      padding: 20px;
+    .lesson-card:nth-child(even) .day-label {
+      background: var(--blue-light);
+    }
+
+    .heart {
+      font-size: 1.2rem;
+    }
+
+    .card-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 130px;
+      margin-bottom: 13px;
+      padding: 15px;
       text-align: center;
-      border: 2px dashed white;
+      background: linear-gradient(135deg, #ffe3ef, #e0f2ff);
+      border: 2px dashed #f4c5dc;
+      border-radius: 15px;
+      overflow: hidden;
     }
 
-    .about-note p:last-child {
-      margin-bottom: 0;
+    .card-art img {
+      display: block;
+      width: 100%;
+      max-height: 190px;
+      object-fit: contain;
+      border-radius: 9px;
+    }
+
+    .art-symbol {
+      display: block;
+      font-size: 2.3rem;
+    }
+
+    .art-caption {
+      font-size: 0.8rem;
+    }
+
+    .lesson-card h3 {
+      margin: 0 0 7px;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    .lesson-topic {
+      color: var(--pink-dark);
+      font-size: 0.82rem;
+      font-weight: bold;
+    }
+
+    .lesson-card:nth-child(even) .lesson-topic {
+      color: #43769e;
+    }
+
+    .card-message {
+      margin: 8px 0 14px;
+      color: #586981;
+      font-size: 0.9rem;
+    }
+
+    .read-more {
+      margin-top: auto;
+      padding-top: 9px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .about-box {
+      margin-top: 36px;
+      padding: 22px;
+      text-align: center;
+      background: linear-gradient(120deg, #ffe3ef, #e1f2ff);
+      border: 2px dashed white;
+      border-radius: 20px;
+    }
+
+    .about-box h2 {
+      margin-top: 0;
     }
 
     footer {
+      padding: 28px 15px;
       text-align: center;
-      padding: 32px 15px;
-      margin-top: 10px;
-      background: linear-gradient(100deg, #ffd6e7, #d9efff);
+      background: linear-gradient(100deg, #ffd9e8, #d9efff);
       border-top: 3px dashed white;
-      color: #435775;
     }
 
     footer p {
-      margin: 5px 0;
+      margin: 5px;
     }
 
-    .footer-small {
+    .small {
       font-size: 0.8rem;
     }
 
-    ::selection {
-      background: #ffc4dc;
-      color: #35445c;
+    /* Full lesson pop-up */
+
+    dialog {
+      width: min(620px, calc(100% - 28px));
+      max-height: 85vh;
+      padding: 0;
+      color: var(--ink);
+      background: var(--white);
+      border: 3px solid white;
+      border-radius: 23px;
+      box-shadow: 0 10px 45px #35465e35;
+    }
+
+    dialog::backdrop {
+      background: #35465e88;
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-header {
+      padding: 23px 22px 18px;
+      background: linear-gradient(120deg, #ffe0ed, #e0f2ff);
+      border-bottom: 2px dashed white;
+    }
+
+    .modal-header h2 {
+      margin: 8px 0;
+      line-height: 1.35;
+    }
+
+    .modal-body {
+      padding: 22px;
+    }
+
+    .modal-art {
+      margin: 15px 0;
+      padding: 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff0f6, #edf8ff);
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+    }
+
+    .modal-art img {
+      display: block;
+      max-width: 100%;
+      max-height: 400px;
+      margin: auto;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .modal-art .art-symbol {
+      font-size: 2.5rem;
+    }
+
+    .reflection {
+      margin-top: 17px;
+      padding: 14px;
+      background: var(--blue-light);
+      border-radius: 14px;
+    }
+
+    .reflection h3 {
+      margin-top: 0;
+    }
+
+    .modal-close {
+      width: 100%;
+      padding: 11px;
+      color: var(--ink);
+      background: var(--pink-light);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      background: var(--blue-light);
     }
 
     @media (max-width: 480px) {
       header {
-        padding: 42px 15px 35px;
+        padding: 38px 15px;
       }
 
-      .card {
-        padding: 18px;
+      main {
+        padding: 22px 14px 35px;
       }
 
-      nav {
-        gap: 7px;
+      .intro {
+        padding: 19px;
       }
 
-      nav a {
-        padding: 6px 11px;
-        font-size: 0.9rem;
+      .lesson-grid {
+        grid-template-columns: 1fr;
       }
 
-      .art-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .card-art {
+        min-height: 115px;
       }
     }
   </style>
@@ -356,150 +425,308 @@
 
 <body>
   <header>
-    <div class="header-decoration">♡ ☆ ୨୧ ☆ ♡</div>
+    <div class="decoration">♡ ☆ ୨୧ ☆ ♡</div>
 
-    <h1>the art diary ♡</h1>
+    <h1>my art learning diary</h1>
 
     <p class="subtitle">
-      a little archive of things i make & moments i keep
+      learning, practicing, and growing one lesson at a time
     </p>
 
-    <p>✧ art · thoughts · chaos · memories ✧</p>
-
-    <div class="header-note">
-      welcome to my little corner of the internet!
+    <div class="header-pill">
+      a little scrapbook of my art journey ♡
     </div>
   </header>
 
   <nav>
     <a href="#home">♡ home</a>
-    <a href="#diary">☆ diary</a>
-    <a href="#gallery">✧ art gallery</a>
-    <a href="#about">୨୧ about</a>
+    <a href="#lessons">☆ daily lessons</a>
+    <a href="#about">୨୧ my journey</a>
   </nav>
 
   <main id="home">
-
-    <section class="card welcome" id="about">
-      <div class="little-sticker">♡ a little introduction ♡</div>
-
-      <h2>heyyy, welcome to my corner!</h2>
+    <section class="intro">
+      <h2>hiii, welcome to my art journey! ♡</h2>
 
       <p>
-        Hii!! Welcome to my personal art diary, a tiny place
-        on the internet where I can collect my drawings,
-        character designs, animation progress, random ideas,
-        and little pieces of life.
+        I'm relearning art, one lesson at a time! This is
+        where I'll document the lessons I practice, share
+        my drawings, talk about what I learn, and keep track
+        of my progress.
       </p>
 
       <p>
-        Think of this as my own digital scrapbook.
-        It's a work in progress, just like me!
+        I'm not here to be perfect. I'm here to practice,
+        experiment, make mistakes, and improve little by
+        little. If you're learning too, welcome!
       </p>
 
-      <div class="welcome-bottom">
-        ♡ make yourself comfy · stay a little while · enjoy! ♡
+      <div class="intro-note">
+        ✧ every drawing is a step forward ✧
       </div>
     </section>
 
-    <section id="diary">
-      <h2 class="section-heading">୨୧ the diary</h2>
+    <section id="lessons">
+      <h2 class="section-heading">୨୧ my daily lessons</h2>
 
-      <p class="section-subtitle">
-        little moments, creative chaos, and memories to keep ♡
+      <p class="section-description">
+        Tap any lesson card to open the full entry!
       </p>
 
-      <article class="card entry-card">
-        <div class="entry-date">October 12, 2026</div>
-
-        <h3>the beginning ☆</h3>
-
-        <div class="art-placeholder">
-          <span class="big-star">♡ ✧ ☆</span>
-          <p><strong>your artwork will live here!</strong></p>
-          <p>a little space waiting for your next creation</p>
+      <div class="progress-strip">
+        <div>
+          <div class="progress-count">
+            <span id="lesson-count">0</span> lessons logged ♡
+          </div>
+          <div class="progress-caption">
+            Every lesson counts, even the messy ones.
+          </div>
         </div>
+        <div aria-hidden="true">✏️ ♡ ☆</div>
+      </div>
 
-        <p>
-          Today I'm starting my own art diary! I want to
-          collect my drawings, ideas, and creative progress
-          in one little corner of the internet.
-        </p>
-
-        <p>
-          Here's to making things, trying new ideas, and
-          filling this space with memories. This is only the
-          beginning!
-        </p>
-
-        <span class="tag pink">first entry</span>
-        <span class="tag">art diary</span>
-        <span class="tag pink">new beginnings</span>
-      </article>
-
-      <!--
-        TO ADD A NEW DIARY ENTRY:
-        Copy the entire article above, paste it below,
-        then change the date, title, artwork, and writing.
-      -->
+      <div class="lesson-grid" id="lesson-grid"></div>
     </section>
 
-    <section id="gallery">
-      <h2 class="section-heading">✧ art gallery</h2>
+    <section id="about" class="about-box">
+      <h2>♡ about this journey</h2>
 
-      <p class="section-subtitle">
-        a home for all the things i create ♡
+      <p>
+        This diary is about learning at my own pace.
+        I'm collecting my practice, discoveries, struggles,
+        and little victories as I relearn how to draw.
       </p>
 
-      <div class="card art-grid">
+      <p>
+        The goal isn't perfect art. The goal is progress.
+      </p>
 
-        <div class="art-tile">
-          <span class="tile-icon">☆</span>
-          <span class="tile-title">sketches</span>
-          <span class="tile-description">little ideas & doodles</span>
-        </div>
-
-        <div class="art-tile">
-          <span class="tile-icon">♡</span>
-          <span class="tile-title">character art</span>
-          <span class="tile-description">OCs & favorite characters</span>
-        </div>
-
-        <div class="art-tile">
-          <span class="tile-icon">✧</span>
-          <span class="tile-title">animation</span>
-          <span class="tile-description">frames & progress</span>
-        </div>
-
-        <div class="art-tile">
-          <span class="tile-icon">୨୧</span>
-          <span class="tile-title">miscellaneous</span>
-          <span class="tile-description">everything else!</span>
-        </div>
-
-      </div>
+      <p><strong>one day, one lesson, one step at a time ☆</strong></p>
     </section>
-
-    <section>
-      <div class="about-note">
-        <h2>♡ a tiny reminder ♡</h2>
-
-        <p>
-          You don't have to be perfect to make art.
-          Every sketch, every experiment, and every little
-          idea is part of the journey.
-        </p>
-
-        <p>keep creating at your own pace ☆</p>
-      </div>
-    </section>
-
   </main>
 
+  <dialog id="lesson-dialog" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <div id="modal-day" class="day-label"></div>
+      <h2 id="modal-title"></h2>
+      <div id="modal-date"></div>
+    </div>
+
+    <div class="modal-body">
+      <div id="modal-topic" class="lesson-topic"></div>
+
+      <div id="modal-art" class="modal-art"></div>
+
+      <h3>♡ today's thoughts</h3>
+      <p id="modal-message"></p>
+
+      <div class="reflection">
+        <h3>✧ what I learned</h3>
+        <p id="modal-learned"></p>
+      </div>
+
+      <div class="reflection">
+        <h3>☆ what's next?</h3>
+        <p id="modal-next"></p>
+      </div>
+
+      <p id="modal-tags"></p>
+
+      <button
+        class="modal-close"
+        id="close-dialog"
+        type="button"
+      >
+        back to all lessons ♡
+      </button>
+    </div>
+  </dialog>
+
   <footer>
-    <p><strong>made with ♡ and a little chaos</strong></p>
-    <p>pink skies · blue days · creative ways ✧</p>
-    <p class="footer-small">thanks for visiting my little corner ☆</p>
+    <p><strong>made with ♡ and a little determination</strong></p>
+    <p>pink skies · blue days · art along the way ✧</p>
+    <p class="small">thanks for following my journey ☆</p>
   </footer>
+
+  <script>
+    /*
+      YOUR LESSON JOURNAL
+
+      Add each new lesson at the TOP of this list.
+      Copy an existing lesson and change its details.
+
+      To add a drawing:
+      1. Upload the image into an "images" folder in GitHub.
+      2. Set artwork to "images/your-file-name.jpg"
+
+      Leave artwork as "" if you don't have an image yet.
+    */
+
+    const lessons = [
+      {
+        day: 1,
+        date: "October 12, 2026",
+        title: "My art journey begins ♡",
+        topic: "Getting started",
+        artwork: "",
+        message:
+          "Today I'm starting my art-learning diary! " +
+          "I'm going to work through lessons, practice " +
+          "regularly, and record how things go. I'm excited " +
+          "to see what I can learn along the way.",
+        learned:
+          "This is my starting point. I can look back at " +
+          "this entry in the future and see how far I've come.",
+        next:
+          "Add the topic of my next art lesson here after " +
+          "I finish it.",
+        tags: ["day one", "new beginnings", "practice"]
+      }
+    ];
+
+    const grid = document.getElementById("lesson-grid");
+    const dialog = document.getElementById("lesson-dialog");
+
+    function makeArtwork(lesson, forModal = false) {
+      const container = document.createElement("div");
+
+      if (lesson.artwork) {
+        const img = document.createElement("img");
+        img.src = lesson.artwork;
+        img.alt = "Artwork for " + lesson.title;
+        img.loading = "lazy";
+        container.appendChild(img);
+      } else {
+        const symbol = document.createElement("span");
+        symbol.className = "art-symbol";
+        symbol.textContent = "♡ ✧ ☆";
+        container.appendChild(symbol);
+
+        const caption = document.createElement("div");
+        caption.className = "art-caption";
+        caption.textContent = "lesson artwork goes here";
+        container.appendChild(caption);
+      }
+
+      return container;
+    }
+
+    function openLesson(lesson) {
+      document.getElementById("modal-day").textContent =
+        "DAY " + String(lesson.day).padStart(2, "0");
+
+      document.getElementById("modal-title").textContent =
+        lesson.title;
+
+      document.getElementById("modal-date").textContent =
+        lesson.date;
+
+      document.getElementById("modal-topic").textContent =
+        "✧ " + lesson.topic;
+
+      const art = document.getElementById("modal-art");
+      art.replaceChildren();
+      art.appendChild(makeArtwork(lesson, true));
+
+      document.getElementById("modal-message").textContent =
+        lesson.message;
+
+      document.getElementById("modal-learned").textContent =
+        lesson.learned;
+
+      document.getElementById("modal-next").textContent =
+        lesson.next;
+
+      const tags = document.getElementById("modal-tags");
+      tags.replaceChildren();
+
+      lesson.tags.forEach(function(tag, index) {
+        const span = document.createElement("span");
+        span.className = "day-label";
+        span.style.display = "inline-block";
+        span.style.margin = "4px 4px 0 0";
+        span.textContent = "♡ " + tag;
+        tags.appendChild(span);
+      });
+
+      dialog.showModal();
+    }
+
+    function renderLessons() {
+      grid.replaceChildren();
+
+      document.getElementById("lesson-count").textContent =
+        lessons.length;
+
+      lessons.forEach(function(lesson) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "lesson-card";
+
+        const top = document.createElement("div");
+        top.className = "card-top";
+
+        const day = document.createElement("span");
+        day.className = "day-label";
+        day.textContent =
+          "DAY " + String(lesson.day).padStart(2, "0");
+
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = lesson.day % 2 === 0 ? "☆" : "♡";
+
+        top.append(day, heart);
+
+        const art = document.createElement("div");
+        art.className = "card-art";
+        art.appendChild(makeArtwork(lesson));
+
+        const date = document.createElement("div");
+        date.className = "small";
+        date.textContent = lesson.date;
+
+        const title = document.createElement("h3");
+        title.textContent = lesson.title;
+
+        const topic = document.createElement("div");
+        topic.className = "lesson-topic";
+        topic.textContent = lesson.topic;
+
+        const message = document.createElement("p");
+        message.className = "card-message";
+        message.textContent =
+          lesson.message.length > 105
+            ? lesson.message.slice(0, 102) + "..."
+            : lesson.message;
+
+        const read = document.createElement("div");
+        read.className = "read-more";
+        read.textContent = "read full lesson →";
+
+        button.append(top, art, date, title, topic, message, read);
+
+        button.addEventListener("click", function() {
+          openLesson(lesson);
+        });
+
+        grid.appendChild(button);
+      });
+    }
+
+    document.getElementById("close-dialog").addEventListener(
+      "click",
+      function() {
+        dialog.close();
+      }
+    );
+
+    dialog.addEventListener("click", function(event) {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+
+    renderLessons();
+  </script>
 </body>
 </html>
